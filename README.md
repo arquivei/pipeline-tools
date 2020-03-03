@@ -11,7 +11,7 @@
 #### Synopsis
 
 ```
-require-commands.sh [COMMAND]...
+require-commands [COMMAND]...
 ```
 
 #### Exit status
@@ -22,12 +22,12 @@ require-commands.sh [COMMAND]...
 #### Examples
 
 ```
-$ require-commands.sh ls
+$ require-commands ls
 Return code: 0 (success)
 ```
 
 ```
-$ require-commands.sh ls not-found-command
+$ require-commands ls not-found-command
 
 Return code: 1 (failure) + output to stderr
 ```
@@ -39,7 +39,7 @@ Return code: 1 (failure) + output to stderr
 #### Synopsis
 
 ```
-require-envs.sh [ENV]...
+require-envs [ENV]...
 ```
 
 #### Exit status
@@ -50,12 +50,31 @@ require-envs.sh [ENV]...
 #### Examples
 
 ```
-$ require-envs.sh PATH
+$ require-envs PATH
 Return code: 0 (success)
 ```
 
 ```
-$ require-envs.sh ls PATH UNAVAILABLE
+$ require-envs ls PATH UNAVAILABLE
 
 Return code: 1 (failure) + outup to stderr
 ```
+
+### setup-gcloud-credentials
+
+> Auth into gcloud and configure docker credentials.
+
+#### Synopsis
+
+```
+GCLOUD_KEYFILE=key-file GCLOUD_PROJECT=project-id setup-gcloud-credentials
+
+GCLOUD_KEYFILE must be a base64 encoded gcloud service account key file.
+
+GCLOUD_PROJECT is the gcloud project id.
+```
+
+#### Exit status
+
+- 0, if OK,
+- 1, if failure.
