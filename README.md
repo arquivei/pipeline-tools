@@ -59,3 +59,22 @@ $ require-envs ls PATH UNAVAILABLE
 
 Return code: 1 (failure) + outup to stderr
 ```
+
+### setup-gcloud-credentials
+
+> Auth into gcloud and configure docker credentials.
+
+#### Synopsis
+
+```
+GCLOUD_KEYFILE=key-file GCLOUD_PROJECT=project-id setup-gcloud-credentials
+
+GCLOUD_KEYFILE must be a base64 encoded gcloud service account key file.
+
+GCLOUD_PROJECT is the gcloud project id.
+```
+
+#### Exit status
+
+- 0, if OK,
+- 1, if failure.
